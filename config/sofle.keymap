@@ -17,7 +17,19 @@
 
 &soft_off {
   hold-time-ms = <5000>; // 5 second hold
-}
+};
+
+&ext_power {
+  hold-time-ms = <5000>; // 5 second hold
+};
+
+&sys_reset {
+  hold-time-ms = <5000>; // 5 second hold
+};
+
+&bootloader {
+  hold-time-ms = <5000>; // 5 second hold
+};
 
 / {
 
