@@ -15,6 +15,22 @@
 #define RAISE 2
 #define ADJUST 3
 
+&soft_off {
+  hold-time-ms = <5000>; // 5 second hold
+}
+
+&ext_power {
+  hold-time-ms = <5000>; // 5 second hold
+}
+
+&sys_reset {
+  hold-time-ms = <5000>; // 5 second hold
+}
+
+&bootloader {
+  hold-time-ms = <5000>; // 5 second hold
+}
+
 / {
 
     // Activate ADJUST layer by pressing raise and lower
@@ -97,19 +113,19 @@
         adjust_layer {
 
 // ----------------------------------------------------------------------------------------------------------------------------
-// |            |     |     |     |     |     |             |     |     |     |     |     |            |
-// |   EP_TOG   |     |     |     |     |     |             |     |     |     |     |     |   EP_TOG   |
-// |    RESET   |     |     |     |     |     |             |     |     |     |     |     |    RESET   |
-// | BOOTLOADER |     |     |     |     |     |     | |     |     |     |     |     |     | BOOTLOADER |
-//                    |     |     |     |     |     | |     |     |     |     |     |
+// |            |        |       |     |     |     |             |     |     |     |       |        |            |
+// |  SOFT_OFF  | EP_TOG | EP_ON |     |     |     |             |     |     |     | EP_ON | EP_TOG |  SOFT_OFF  |
+// |    RESET   |        |       |     |     |     |             |     |     |     |       |        |    RESET   |
+// | BOOTLOADER |        |       |     |     |     |     | |     |     |     |     |       |        | BOOTLOADER |
+//                       |       |     |     |     |     | |     |     |     |     |       |
 
             display-name = "adjust";
             bindings = <
-&none             &none &none &none &none &none             &none &none &none &none &none &none
-&ext_power EP_TOG &none &none &none &none &none             &none &none &none &none &none &ext_power EP_TOG
-&sys_reset        &none &none &none &none &none             &none &none &none &none &none &sys_reset
-&bootloader       &none &none &none &none &none &none &none &none &none &none &none &none &bootloader
-                        &none &none &none &none &none &none &none &none &none &none
+&none       &none             &none             &none &none &none             &none &none &none &none             &none             &none
+&soft_off   &ext_power EP_TOG &ext_power EP_ON  &none &none &none             &none &none &none &ext_power EP_ON  &ext_power EP_TOG &soft_off
+&sys_reset  &none             &none             &none &none &none             &none &none &none &none             &none             &sys_reset
+&bootloader &none             &none             &none &none &none &none &none &none &none &none &none             &none             &bootloader
+                              &none             &none &none &none &none &none &none &none &none &none
             >;
         };
 
