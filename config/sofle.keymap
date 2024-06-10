@@ -97,17 +97,17 @@
         adjust_layer {
 
 // ----------------------------------------------------------------------------------------------------------------------------
+// |        |     |     |     |     |     |             |     |     |     |     |     |     |
 // | EP_TOG |     |     |     |     |     |             |     |     |     |     |     |     |
-// |        |     |     |     |     |     |             |     |     |     |     |     |     |
-// |        |     |     |     |     |     |             |     |     |     |     |     |     |
+// |  RESET |     |     |     |     |     |             |     |     |     |     |     |     |
 // |        |     |     |     |     |     |     | |     |     |     |     |     |     |     |
 //                |     |     |     |     |     | |     |     |     |     |     |
 
             display-name = "adjust";
             bindings = <
+&none             &none &none &none &none &none             &none &none &none &none &none &none
 &ext_power EP_TOG &none &none &none &none &none             &none &none &none &none &none &none
-&none             &none &none &none &none &none             &none &none &none &none &none &none
-&none             &none &none &none &none &none             &none &none &none &none &none &none
+&sys_reset        &none &none &none &none &none             &none &none &none &none &none &none
 &none             &none &none &none &none &none &none &none &none &none &none &none &none &none
                         &none &none &none &none &none &none &none &none &none &none
             >;
