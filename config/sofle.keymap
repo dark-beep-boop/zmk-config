@@ -19,10 +19,6 @@
   hold-time-ms = <5000>; // 5 second hold
 };
 
-&ext_power {
-  hold-time-ms = <5000>; // 5 second hold
-};
-
 / {
 
     // Activate ADJUST layer by pressing raise and lower
