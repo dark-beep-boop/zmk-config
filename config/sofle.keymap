@@ -97,19 +97,19 @@
         adjust_layer {
 
 // ----------------------------------------------------------------------------------------------------------------------------
-// |     |     |     |     |     |     |             |     |     |     |     |     |     |
-// |     |     |     |     |     |     |             |     |     |     |     |     |     |
-// |     |     |     |     |     |     |             |     |     |     |     |     |     |
-// |     |     |     |     |     |     |     | |     |     |     |     |     |     |     |
-//             |     |     |     |     |     | |     |     |     |     |     |
+// | EP_TOG |     |     |     |     |     |             |     |     |     |     |     |     |
+// |        |     |     |     |     |     |             |     |     |     |     |     |     |
+// |        |     |     |     |     |     |             |     |     |     |     |     |     |
+// |        |     |     |     |     |     |     | |     |     |     |     |     |     |     |
+//                |     |     |     |     |     | |     |     |     |     |     |
 
             display-name = "adjust";
             bindings = <
-&none &none &none &none &none &none             &none &none &none &none &none &none
-&none &none &none &none &none &none             &none &none &none &none &none &none
-&none &none &none &none &none &none             &none &none &none &none &none &none
-&none &none &none &none &none &none &none &none &none &none &none &none &none &none
-            &none &none &none &none &none &none &none &none &none &none
+&ext_power EP_TOG &none &none &none &none &none             &none &none &none &none &none &none
+&none             &none &none &none &none &none             &none &none &none &none &none &none
+&none             &none &none &none &none &none             &none &none &none &none &none &none
+&none             &none &none &none &none &none &none &none &none &none &none &none &none &none
+                        &none &none &none &none &none &none &none &none &none &none
             >;
         };
 
