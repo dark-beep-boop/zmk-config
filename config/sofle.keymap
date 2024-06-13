@@ -97,19 +97,19 @@
         adjust_layer {
 
 // ----------------------------------------------------------------------------------------------------------------------------
-// |            |     |     |     |     |     |             |     |     |     |     |     |            |
-// |            |     |     |     |     |     |             |     |     |     |     |     |            |
-// |    RESET   |     |     |     |     |     |             |     |     |     |     |     |    RESET   |
-// | BOOTLOADER |     |     |     |     |     |     | |     |     |     |     |     |     | BOOTLOADER |
-//                    |     |     |     |     |     | |     |     |     |     |     |
+// |            |        |     |     |     |     |             |     |     |     |     |        |            |
+// |  Soft Off  | EP TOG |     |     |     |     |             |     |     |     |     | EP TOG |  Soft Off  |
+// |    RESET   |  EP ON |     |     |     |     |             |     |     |     |     |  EP ON |    RESET   |
+// | BOOTLOADER | EP OFF |     |     |     |     |     | |     |     |     |     |     | EP OFF | BOOTLOADER |
+//                       |     |     |     |     |     | |     |     |     |     |     |
 
             display-name = "adjust";
             bindings = <
-&none       &none &none &none &none &none             &none &none &none &none &none &none
-&none       &none &none &none &none &none             &none &none &none &none &none &none
-&sys_reset  &none &none &none &none &none             &none &none &none &none &none &sys_reset
-&bootloader &none &none &none &none &none &none &none &none &none &none &none &none &bootloader
-                  &none &none &none &none &none &none &none &none &none &none
+&none       &none             &none &none &none &none             &none &none &none &none &none             &none
+&soft_off   &ext_power EP_TOG &none &none &none &none             &none &none &none &none &ext_power EP_TOG &soft_off
+&sys_reset  &ext_power EP_ON  &none &none &none &none             &none &none &none &none &ext_power EP_ON  &sys_reset
+&bootloader &ext_power EP_OFF &none &none &none &none &none &none &none &none &none &none &ext_power EP_OFF &bootloader
+                              &none &none &none &none &none &none &none &none &none &none
             >;
         };
 
