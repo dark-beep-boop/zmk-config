@@ -90,23 +90,23 @@
         raise_layer {
             display-name = "raise";
 
-// -------------------------------------------------------------------               -----------------------------------------------
-// | BT CLR | BT 1 |    BT 2   |    BT 3   |    BT 4    |    BT 5    |               |      |       |      |       |       |       |
-// |        |      |    LCLK   |  MOVE_UP  |    RCLK    |   SCRL_UP  |               | PGUP | ENTER |   ^  |  INS  | PSCRN |       |
-// |        | CLCK | MOVE_LEFT | MOVE_DOWN | MOVE_RIGHT |  SCRL_DOWN |-------  ------| PGDN |   <-  |   v  |   ->  |  DEL  | BKSPC |
-// |        |      |           |           |  SCRL_LEFT | SCRL_RIGHT | MCLK |  |     | UNDO |  CUT  | COPY | PASTE | CMENU |       |
-// ----------------|           |           |            |            | MCLK |  |     |      |       |      |       |----------------
-//                 ----------------------------------------------------------  -------------------------------------              
+// ------------------------------------------------------------------                -----------------------------------------------
+// | BT CLR | BT 1 |    BT 2   |    BT 3   |    BT 4    |    BT 5   |                |      |       |      |       |       |       |
+// |        |      |    RCLK   |  MOVE_UP  |    LCLK    |  SCRL_UP  |                | PGUP | ENTER |   ^  |  INS  | PSCRN |       |
+// |        | CLCK | MOVE_LEFT | MOVE_DOWN | MOVE_RIGHT | SCRL_DOWN |-------  -------| PGDN |   <-  |   v  |   ->  |  DEL  | BKSPC |
+// |        |      | SCRL_LEFT |           | SCRL_RIGHT |           | MCLK |  | MCLK | UNDO |  CUT  | COPY | PASTE | CMENU |       |
+// ----------------|           |           |            |           |      |  |      |      |       |      |       |----------------
+//                 ---------------------------------------------------------  --------------------------------------              
 
             bindings = <
-&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3    &bt BT_SEL 4                       &trans     &trans    &trans     &trans      &trans      &trans
-&trans     &trans       &mkp LCLK      &mmv MOVE_UP   &mkp RCLK       &msc SCRL_UP                       &kp PG_UP  &kp RET   &kp UP     &kp INS     &kp PSCRN   &trans
-&trans     &kp CLCK     &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_DOWN                     &kp PG_DN  &kp LEFT  &kp DOWN   &kp RIGHT   &kp DEL     &kp BSPC
-&trans     &trans       &trans         &trans         &msc SCRL_RIGHT &msc SCRL_RIGHT &mkp MCLK  &trans  &kp K_UNDO &kp K_CUT &kp K_COPY &kp K_PASTE &kp K_CMENU &trans
-                        &trans         &trans         &trans          &trans          &mkp MCLK  &trans  &trans     &trans    &trans     &trans
+&bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1   &bt BT_SEL 2   &bt BT_SEL 3    &bt BT_SEL 4                        &trans     &trans    &trans     &trans      &trans      &trans
+&trans     &trans       &mkp RCLK      &mmv MOVE_UP   &mkp LCLK       &msc SCRL_UP                        &kp PG_UP  &kp RET   &kp UP     &kp INS     &kp PSCRN   &trans
+&trans     &kp CLCK     &mmv MOVE_LEFT &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc SCRL_DOWN                      &kp PG_DN  &kp LEFT  &kp DOWN   &kp RIGHT   &kp DEL     &kp BSPC
+&trans     &trans       &msc SCRL_LEFT &trans         &msc SCRL_RIGHT &trans         &mkp MCLK  &mkp MCLK &kp K_UNDO &kp K_CUT &kp K_COPY &kp K_PASTE &kp K_CMENU &trans
+                        &trans         &trans         &trans          &trans         &trans     &trans    &trans     &trans    &trans     &trans
             >;
 
-            sensor-bindings = <&msc_encoder SCRL_UP SCRL_RIGHT &inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&msc_encoder SCRL_UP SCRL_DOWN &msc_encoder SCRL_LEFT SCRL_RIGHT>;
         };
 
         adjust_layer {
